@@ -25,18 +25,30 @@ export const GlobalStyles = createGlobalStyle`
 
   .calc-wrapper {
     display: grid;
-    grid-template-columns: 150px 150px 150px;
-    grid-template-rows: 150px 150px;
-    grid-gap: 1rem;
-    width: 500px;
-    height: 400px;
-    background-color: ${props => props.theme.calcWrapper};
+    grid-template-columns: 4fr 4fr 4fr 4fr; 
+    grid-template-rows: 4fr 4fr 4fr 4fr; 
+    grid-template-areas: 
+      "calcbutton"
+      "calcbutton"
+      "calcbutton"
+      "calcbutton"; 
+    // background-color: ${props => props.theme.calcWrapper};
+  }
+
+  .cal-wrapper div {
+    padding: 5px;
   }
 
   .input-bill {
     width: 100%;
     display: flex;
     height: 50px;
+  }
+
+  header {
+    // we should add props here for the theme
+    display: flex;
+    align-items: center;
   }
 
 ` 
