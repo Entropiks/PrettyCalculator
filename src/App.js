@@ -28,13 +28,11 @@ function App() {
   }
 
   function handleButtonClick(e) {
-    console.log(e.target.value);
     setUserInput(userInput + e.target.value);
   }
 
   function handleCalculate() {
     setTotal(eval(userInput));
-    console.log(total);
   }
 
   function handleClear() {
@@ -45,23 +43,27 @@ function App() {
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightMode : darkMode}>
-      <GlobalStyles/>   
+    <GlobalStyles/>   
       <header>
-        <h1>C A L C U L A T O R</h1>
+        <h1>C A L C</h1>
         <ToggleButton> 
-          <button onClick={() => themeToggler()}>Toggle</button>
+          <button onClick={() => themeToggler()} />
         </ToggleButton>
       </header>
-      {total}
+      <div className="total">
+        {total}
+      </div>
       <input className="total" placeholder="" value={userInput}/> 
       <div className="calc-wrapper">
-        { makeButtons() }
+        { makeButtons() }   
         <button onClick={handleButtonClick} value="+">+</button>
         <button onClick={handleButtonClick} value="-">-</button>
         <button onClick={handleButtonClick} value="/">/</button>
         <button onClick={handleButtonClick} value=".">.</button>
         <button onClick={handleButtonClick} value="*">*</button>
-        <button onClick={handleButtonClick} value="del">del</button>
+        <button onClick={handleButtonClick} value="del">del</button> 
+      </div>
+      <div className="clear-equal">
         <button onClick={handleClear}>Clear</button>
         <button onClick={handleCalculate}>=</button>
       </div>

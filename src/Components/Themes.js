@@ -3,13 +3,15 @@ import { createGlobalStyle } from "styled-components"
 export const darkMode = {
   body: '#000',
   fontColor: '#fff',
-  calcWrapper: '#777777'
+  calcWrapper: 'red',
+  themeButton: 'fff'
 }
 
 export const lightMode = {
   body: '#fff',
   fontColor: '#000',
-  calcWrapper: '#c7c7c7'
+  calcWrapper: 'blue',
+  themeButton: '000'
 }
 
 export const GlobalStyles = createGlobalStyle`
@@ -25,14 +27,8 @@ export const GlobalStyles = createGlobalStyle`
 
   .calc-wrapper {
     display: grid;
-    grid-template-columns: 4fr 4fr 4fr 4fr; 
-    grid-template-rows: 4fr 4fr 4fr 4fr; 
-    grid-template-areas: 
-      "calcbutton"
-      "calcbutton"
-      "calcbutton"
-      "calcbutton"; 
-    // background-color: ${props => props.theme.calcWrapper};
+    grid-template-columns: repeat(4, 1fr); 
+    background-color: ${props => props.theme.calcWrapper};
   }
 
   .cal-wrapper div {
@@ -51,9 +47,24 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   header {
-    // we should add props here for the theme
     display: flex;
+    justify-content: space-between;
+    align-content: center;
     align-items: center;
+  }
+
+  header button {
+    display: flex;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: none;
+    background-color: ${props => props.theme.themeButton }
+  }
+
+  .clear-equal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
 ` 
