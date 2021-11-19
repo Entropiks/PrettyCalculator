@@ -29,9 +29,18 @@ function App() {
 
   function handleButtonClick(e) {
     console.log(e.target.value);
-    setUserInput(e.target.value);
+    setUserInput(userInput + e.target.value);
   }
-  
+
+  function handleCalculate() {
+    setTotal(eval(userInput));
+    console.log(total);
+  }
+
+  function handleClear() {
+    setTotal('Enter something...');
+    setUserInput('');
+  }  
   
 
   return (
@@ -43,7 +52,8 @@ function App() {
           <button onClick={() => themeToggler()}>Toggle</button>
         </ToggleButton>
       </header>
-      <input className="total" placeholder="Total" value={userInput}/> 
+      {total}
+      <input className="total" placeholder="" value={userInput}/> 
       <div className="calc-wrapper">
         { makeButtons() }
         <button onClick={handleButtonClick} value="+">+</button>
@@ -52,6 +62,8 @@ function App() {
         <button onClick={handleButtonClick} value=".">.</button>
         <button onClick={handleButtonClick} value="*">*</button>
         <button onClick={handleButtonClick} value="del">del</button>
+        <button onClick={handleClear}>Clear</button>
+        <button onClick={handleCalculate}>=</button>
       </div>
     </ThemeProvider>
   );

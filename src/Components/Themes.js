@@ -45,6 +45,11 @@ export const GlobalStyles = createGlobalStyle`
     height: 50px;
   }
 
+  .total {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   header {
     // we should add props here for the theme
     display: flex;
