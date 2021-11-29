@@ -6,12 +6,11 @@ import { darkMode, lightMode, GlobalStyles } from './Components/Themes';
 // Styled component
 const ToggleButton = styled.div``;
 
-
 function App() {
 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [userInput, setUserInput] = useState([]);
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState('Enter something...');
 
   const themeToggler = () => {
     if (theme === 'light' ? setTheme('dark') : setTheme('light'));
@@ -31,8 +30,13 @@ function App() {
     setUserInput(userInput + e.target.value);
   }
 
-  function handleCalculate() {
-    setTotal(eval(userInput));
+  function handleCalculate(e) {
+    
+    // I know eval isn't safe but this is an offline calculator app, its fine...
+    setTotal(eval(userInput)); 
+    if (userInput === '') {
+      setUserInput('Enter something...')
+    }
   }
 
   function handleClear() {
@@ -43,30 +47,32 @@ function App() {
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightMode : darkMode}>
-    <GlobalStyles/>   
-      <header>
-        <h1>C A L C</h1>
-        <ToggleButton> 
-          <button onClick={() => themeToggler()} />
-        </ToggleButton>
-      </header>
-      <div className="total">
-        {total}
-      </div>
-      <input className="total" placeholder="" value={userInput}/> 
-      <div className="calc-wrapper">
-        { makeButtons() }   
-        <button onClick={handleButtonClick} value="+">+</button>
-        <button onClick={handleButtonClick} value="-">-</button>
-        <button onClick={handleButtonClick} value="/">/</button>
-        <button onClick={handleButtonClick} value=".">.</button>
-        <button onClick={handleButtonClick} value="*">*</button>
-        <button onClick={handleButtonClick} value="del">del</button> 
-      </div>
-      <div className="clear-equal">
-        <button onClick={handleClear}>Clear</button>
-        <button onClick={handleCalculate}>=</button>
-      </div>
+    <GlobalStyles/>
+      <div className="app-wrapper"> 
+        <header>
+          <h1>C A L C</h1>
+          <ToggleButton> 
+            <button onClick={() => themeToggler()} />
+          </ToggleButton>
+        </header>
+        <div className="total-wrapper">
+          {total}
+          <input className="total" placeholder="" value={userInput}/> 
+        </div>
+        <div className="calc-wrapper">
+          { makeButtons() }
+          <button onClick={handleButtonClick} value="+">+</button>
+          <button onClick={handleButtonClick} value="-">-</button>
+          <button onClick={handleButtonClick} value="/">/</button>
+          <button onClick={handleButtonClick} value=".">.</button>
+          <button onClick={handleButtonClick} value="*">*</button>
+          <button onClick={handleButtonClick} value="del">del</button> 
+        </div>
+        <div className="clear-equal">
+          <button className="clear-button" onClick={handleClear}>Clear</button>
+          <button className="equals-button" onClick={handleCalculate}>=</button>
+        </div>
+      </div>  
     </ThemeProvider>
   );
 }

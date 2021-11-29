@@ -1,20 +1,27 @@
 import { createGlobalStyle } from "styled-components"
 
 export const darkMode = {
-  body: '#000',
+  body: '#3b4664',
   fontColor: '#fff',
   calcWrapper: 'red',
-  themeButton: 'fff'
+  themeButton: 'fff',
+  equalsButton: '#d14031',
+  clearButton: '#647199'
 }
 
 export const lightMode = {
   body: '#fff',
   fontColor: '#000',
   calcWrapper: 'blue',
-  themeButton: '000'
+  themeButton: '000',
+  equalsButton: '#c85402',
+  clearButton: '#fff'
 }
 
 export const GlobalStyles = createGlobalStyle`
+  .app-wrapper {
+    width: 300px;
+  }
   
   body {
     height: 100vh;
@@ -28,17 +35,30 @@ export const GlobalStyles = createGlobalStyle`
   .calc-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
+    grid-template-areas:  
     background-color: ${props => props.theme.calcWrapper};
   }
 
-  .cal-wrapper div {
+  button {
     padding: 5px;
+    margin: 5px;
+  }
+
+  .equals-button {
+    border: none;
+    background-color: ${props => props.theme.equalsButton};
+    box-shadow: 0px 3px 1px maroon;
+    
   }
 
   .input-bill {
     width: 100%;
     display: flex;
     height: 50px;
+  }
+
+  .total-wrapper {
+    margin-bottom: 5px;
   }
 
   .total {
@@ -65,6 +85,12 @@ export const GlobalStyles = createGlobalStyle`
   .clear-equal {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .clear-button {
+    border: none;
+    box-shadow: 0px 3px 1px #232d46;
+    background-color: ${props => props.theme.clearButton }
   }
 
 ` 
