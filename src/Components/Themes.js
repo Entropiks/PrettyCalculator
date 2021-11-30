@@ -6,7 +6,9 @@ export const darkMode = {
   calcWrapper: 'red',
   themeButton: 'fff',
   equalsButton: '#d14031',
-  clearButton: '#647199'
+  clearButton: '#647199',
+  button: '#e9e3db',
+  appWrapper: '#242c44'
 }
 
 export const lightMode = {
@@ -15,12 +17,17 @@ export const lightMode = {
   calcWrapper: 'blue',
   themeButton: '000',
   equalsButton: '#c85402',
-  clearButton: '#fff'
+  clearButton: '#fff',
+  button: '#000',
+  appWrapper: '#000'
 }
 
 export const GlobalStyles = createGlobalStyle`
   .app-wrapper {
     width: 300px;
+    padding: 20px;
+    border-radius: 7px;
+    background-color: ${props => props.theme.appWrapper};
   }
   
   body {
@@ -40,15 +47,17 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   button {
+    border: none;
     padding: 5px;
     margin: 5px;
+    background-color: ${props => props.theme.button};
+    box-shadow: 0px 3px 1px #646268;
   }
 
   .equals-button {
     border: none;
     background-color: ${props => props.theme.equalsButton};
     box-shadow: 0px 3px 1px maroon;
-    
   }
 
   .input-bill {
@@ -59,6 +68,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .total-wrapper {
     margin-bottom: 5px;
+    padding: 0px 5px;
   }
 
   .total {
@@ -71,6 +81,7 @@ export const GlobalStyles = createGlobalStyle`
     justify-content: space-between;
     align-content: center;
     align-items: center;
+    padding: 0px 5px;
   }
 
   header button {

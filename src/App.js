@@ -10,7 +10,7 @@ function App() {
 
   const [theme, setTheme] = useState('dark');
   const [userInput, setUserInput] = useState([]);
-  const [total, setTotal] = useState('Enter something...');
+  const [total, setTotal] = useState('0');
 
   const themeToggler = () => {
     if (theme === 'light' ? setTheme('dark') : setTheme('light'));
@@ -35,12 +35,12 @@ function App() {
     // I know eval isn't safe but this is an offline calculator app, its fine...
     setTotal(eval(userInput)); 
     if (userInput === '') {
-      setUserInput('Enter something...')
+      setUserInput('0')
     }
   }
 
   function handleClear() {
-    setTotal('Enter something...');
+    setTotal('0');
     setUserInput('');
   }  
   
