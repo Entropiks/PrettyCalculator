@@ -1,4 +1,5 @@
 # Pretty Calculator
 ## Built with React
 
-prettycalc.netlify.app
+#### How can I see it?
+[See it here, hosted by netlify](prettycalc.netlify.app)
