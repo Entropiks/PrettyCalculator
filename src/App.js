@@ -56,7 +56,7 @@ function App() {
           </ToggleButton>
         </header>
         <div className="total-wrapper">
-          {total}
+          <div className="final-total">{total}</div>
           <input className="total" placeholder="" value={userInput}/> 
         </div>
         <div className="calc-wrapper">
