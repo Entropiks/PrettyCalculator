@@ -1,7 +1,7 @@
 # Pretty Calculator - Built with React
 
 ## How can I see it?
-[See it here, hosted by netlify](prettycalc.netlify.app)
+[See it here, hosted by netlify](https://www.prettycalc.netlify.app)
 
 ## How can I use locally?
 ```
