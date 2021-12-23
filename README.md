@@ -3,7 +3,7 @@
 ## How can I see it?
 [See it here, hosted by netlify](prettycalc.netlify.app)
 
-## How can I use locally/
+## How can I use locally?
 ```
 npm install
 npm start
